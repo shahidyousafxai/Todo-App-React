@@ -1,12 +1,10 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import './Todos.css'
 
 function Todos({ todos, deleteTodo, toggleClick, pending }) {
-  useEffect(() => {
-    const btnvalue = pending.map((statetodo) => {
-      return console.log(statetodo.status)
-    })
-  }, [pending])
+  // const stateVal = pending.filter((statetodo) => {
+  //   return console.log(statetodo.id)
+  // })
 
   const todoList = todos.length ? (
     todos.map((todo) => {
@@ -21,16 +19,16 @@ function Todos({ todos, deleteTodo, toggleClick, pending }) {
           >
             &times;
           </span>
-          <span className='right align'>
+          {/* <span className='right align'>
             <button
               className='btnd blue white-text'
               onClick={() => {
                 toggleClick(todo.id)
               }}
             >
-              btnvalue
+              stateVal
             </button>
-          </span>
+          </span> */}
         </div>
       )
     })

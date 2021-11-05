@@ -9,46 +9,48 @@ function App() {
     { id: 3, content: 'Aman Mohsin', status: true },
   ]
 
+  // Delete Todos useState
   const [todos, setTodos] = useState(todosdata)
+
+  // Delete Todos function
   const deleteTodo = (id) => {
-    // console.log(id)
     const todosf = todos.filter((todo) => {
       return todo.id !== id
-      // console.log(todo.id !== id)
     })
     setTodos(todosf)
   }
 
-  const [pending, setPending] = useState(todosdata)
-  const toggleClick = (id) => {
-    // console.log(id)
-    const statusChange = pending.filter((todo) => {
-      if (todo.id === id) {
-        todo.status = !todo.status
-      }
-      return todo
-    })
-    setPending(statusChange)
-    // console.log(pending)
-  }
+  // // Todos Updating
+  // const [pending, setPending] = useState(todos)
+  // useEffect(() => {
+  //   setPending(todos)
+  // }, [todos])
 
+  // // Todos Status change
+  // const toggleClick = (id) => {
+  //   const statusChange = pending.filter((todo) => {
+  //     if (todo.id === id) {
+  //       todo.status = !todo.status
+  //     }
+  //     return todo
+  //   })
+  //   setPending(statusChange)
+  // }
+
+  // return status
+
+  //Add Todos function
   const addTodo = (todo) => {
     todo.id = Math.random()
     todo.status = true
-    let todosp = [...todos, todo]
-    console.log(todosp)
+    var todosp = [...todos, todo]
     setTodos(todosp)
   }
   return (
     <div className='todo-app container'>
       <h1 className='center blue-text'>Todo's App</h1>
       <AddTodo addTodo={addTodo} />
-      <Todos
-        todos={todos}
-        pending={pending}
-        deleteTodo={deleteTodo}
-        toggleClick={toggleClick}
-      />
+      <Todos todos={todos} deleteTodo={deleteTodo} />
     </div>
   )
 }
