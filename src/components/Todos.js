@@ -1,7 +1,7 @@
 import React from 'react'
 import './Todos.css'
 
-function Todos({ todos, deleteTodo, toggleClick, pending }) {
+function Todos({ todos, deleteTodo }) {
   // const stateVal = pending.filter((statetodo) => {
   //   return console.log(statetodo.id)
   // })
